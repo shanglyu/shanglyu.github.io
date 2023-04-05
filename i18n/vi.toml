@@ -1,0 +1,61 @@
+[home]
+other = "Trang Chủ"
+
+[backToHome]
+other = "Trở về Trang chủ"
+
+[flip]
+other = "Lật!"
+
+[archives]
+other = "Bộ sưu tập"
+
+[allTags]
+other = "Tất cả thẻ"
+
+[tag]
+one = "1 thẻ"
+other = "{{ .Count }} thẻ"
+
+[allCategories]
+other = "Tất cả danh mục"
+
+[category]
+one = "1 danh mục"
+other = "{{ .Count }} danh mục"
+
+[article]
+one = "1 bài viểt"
+other = "{{ .Count }} bài viết"
+
+[allPosts]
+other="Bài viết"
+
+[group]
+one = "1 nhóm"
+other = "{{ .Count }} nhóm"
+
+[socialLinks]
+other = "Mạng xã hội"
+
+[minuteRead]
+one = " phút để đọc"
+other = " phút để đọc"
+
+[updateAt]
+other = "Cập nhật lúc"
+
+[noTag]
+other = "Không thẻ"
+
+[prevPage]
+other = "Trang trước"
+
+[nextPage]
+other = "Trang tiếp theo"
+
+[saveAsImage]
+other = "Lưu dưới dạng hình ảnh"
+
+[search]
+other = "Tìm kiếm"

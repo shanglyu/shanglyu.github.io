@@ -1,0 +1,93 @@
+baseURL = "https://shanglyuv.github.io"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "Shang"
+#theme = "hugo-theme-dream"
+
+# copyright = ""
+
+# googleAnalytics = ""
+
+# disqusShortname = "Shang"
+
+# enableRobotsTXT = true
+
+[params]
+  background = "#f7f7f7"
+  backgroundImage = "/me/background.jpeg"
+  linkColor = "seagreen"
+
+ #  dark mode
+ # defaultDark = true
+   backgroundDark = "#333"
+   backgroundImageDark = "/me/background-darkmode.jpeg"
+   darkLinkColor = "darkseagreen"
+   darkNav = true
+   dark404 = true
+
+  images = ["me/background.jpg"]
+
+  author = "Shang"
+  description = "CTFer-Pentester"
+  avatar = "/me/avatar.jpg"
+  headerTitle = "Shang"
+  motto = "CTFer-Pentester"
+  # maxTags = 5
+  # categoriesLimitInHeader = 6 # deprecated
+  # headerBottomText = "" # deprecated
+
+  # footerBottomText = ""
+
+  # rss = true
+
+   utterancesRepo = "shanglyuv/shang.github.io"
+
+  # valine = true
+  # LEANCLOUD_APP_ID = ""
+  # LEANCLOUD_APP_KEY = ""
+  # VALINE_LANGUAGE = ""
+
+  # email = ""
+  # twitter = ""
+  # facebook = ""
+  # instagram = ""
+  # mastodon = ""
+  # linkedin = ""
+    github = "shanglyuv"
+  # stackoverflow = ""
+  # codepen = ""
+
+  siteStartYear = 2023
+
+  favicon = "/favicon.png"
+
+    highlightjs = true
+    highlightjsCDN = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"
+    highlightjsExtraLanguages = ["ocaml"]
+    highlightjsTheme = "gruvbox-light"
+    highlightjsThemeDark = "gruvbox-dark"
+
+  # search
+    enableSearch = true
+
+  # options
+   showSummaryCoverInPost = true
+  # hasTwitterEmbed = true
+  # reversePostAndAside = true
+  # shareInAside = true
+   fixedNav = true
+   transparentNav = true
+  # collapsibleTags = true
+  # collapseBySummary = true
+  # disableFlip = true
+  # hideBackSocialLinks = true
+
+  # [params.advanced]
+      customCSS = ["css/custom.css"]
+  #   customJSBefore = []
+  #   customJS = []
+
+  # [params.experimental]
+     jsDate = true
+     jsDateFormat = "dd-mm-yyyy"
+

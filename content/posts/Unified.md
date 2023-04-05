@@ -12,7 +12,7 @@ categories:
   - HackTheBox
 tags:
   - HackTheBox
-  - Pentester
+  - Pentest
 # nolastmod: true
 draft: false
 ---

@@ -5,7 +5,7 @@ lastmod: 2023-04-05T14:54:09+03:00
 author: Shang
 avatar: /img/author.jpg
 # authorlink: https://author.site
-cover: /img/Unified/cover.png
+cover: /img/cover.png
 images:
    - /img/cover.jpg
 categories:

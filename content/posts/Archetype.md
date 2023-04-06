@@ -18,8 +18,10 @@ draft: false
 ---
 
 ![avatar](/img/Archetype/avatar.png)
-- Completed on `30/08/2022` | OS: `Windows`
-- Tools used: `nmap` `smbclient` `smbget` `impacket-mssqlclient`  `module: http.server` `winPEAS` `nc.exe` `impacket-psexec`
+>Completed on `30/08/2022` | OS: `Windows`
+>
+>Tools used: `nmap` `smbclient` `smbget` `impacket-mssqlclient`  `module: http.server` `winPEAS` `nc.exe` `impacket-psexec`
+>
 <!--more-->
 > **Perform RCE**: *Here we will exploit the server with the user account, then from the user account exploit the server to get root privileges and thereby take the highest control.*
 >

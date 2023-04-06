@@ -3,9 +3,9 @@ title: {{ replace .TranslationBaseName "-" " " | title }}
 date: {{ .Date }}
 lastmod: {{ .Date }}
 author: Shang
-# avatar: /img/author.jpg
+avatar: /img/author.jpg
 # authorlink: https://author.site
-cover: /img/cover.jpg
+cover: /img/cover.png
 # images:
 #   - /img/cover.jpg
 categories:

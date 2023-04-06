@@ -1,7 +1,7 @@
 ---
 title: Unified
 date: 2023-04-05T14:54:09+03:00
-#lastmod: 2023-04-05T14:54:09+03:00
+lastmod: 2023-04-05T14:54:09+03:00
 author: Shang
 avatar: /img/author.jpg
 # authorlink: https://author.site
@@ -13,7 +13,7 @@ categories:
 tags:
   - HackTheBox
   - Pentest
-# nolastmod: true
+nolastmod: true
 draft: false
 ---
 
@@ -92,6 +92,7 @@ The scan revealed an open port running an HTTP proxy. However, the proxy seems t
 </aside>
 
 ![Untitled](/img/Unified/Untitled.png)
+
 
 We use the keyword “`UniFi 6.4.54 exploit`” reveals an article that discusses the in-depth exploitation of the `CVE-2021-44228` vulnerability within this application - ( It is also called Log4J).
 

@@ -18,7 +18,7 @@ draft: false
 ---
 
 ![avatar](/img/Oopsie/avatar.png)
-> Completed on `31/08/2022` | OS: `Windows`
+> Completed on `31/08/2022` | OS: `Linux`
 > 
 > Tools used: `nmap` `burp-suite` `gobuster` `netcat`
 > 

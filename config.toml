@@ -1,14 +1,14 @@
 baseURL = "https://shanglyuv.github.io"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Shang"
+title = "Shine"
 #theme = "hugo-theme-dream"
 
 # copyright = ""
 
 # googleAnalytics = ""
 
-# disqusShortname = "Shang"
+# disqusShortname = "Shine"
 
 # enableRobotsTXT = true
 
@@ -27,7 +27,7 @@ title = "Shang"
 
   images = ["me/background.jpg"]
 
-  author = "Shang"
+  author = "Shine"
   description = "CTFer-Pentester"
   avatar = "/me/avatar.jpg"
   headerTitle = "Shang"
@@ -54,7 +54,7 @@ title = "Shang"
   # mastodon = ""
   # linkedin = ""
     github = "shanglyu"
-    gitbook="https://shangs.gitbook.io/shang"
+    gitbook="https://shangs.gitbook.io/shine"
   # stackoverflow = ""
   # codepen = ""
 

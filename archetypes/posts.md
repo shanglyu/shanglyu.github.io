@@ -2,7 +2,7 @@
 title: {{ replace .TranslationBaseName "-" " " | title }}
 date: {{ .Date }}
 lastmod: {{ .Date }}
-author: Shang
+author: Shine
 avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: /img/cover.png

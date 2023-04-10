@@ -2,7 +2,7 @@
 title: Oopsie
 date: 2023-04-06T13:15:37+03:00
 lastmod: 2023-04-06T13:15:37+03:00
-author: Shang
+author: Shine
 avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: /img/cover.png

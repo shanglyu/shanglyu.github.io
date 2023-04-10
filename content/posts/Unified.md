@@ -2,7 +2,7 @@
 title: Unified
 date: 2023-04-05T14:54:09+03:00
 lastmod: 2023-04-05T14:54:09+03:00
-author: Shang
+author: Shine
 avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: /img/cover.png

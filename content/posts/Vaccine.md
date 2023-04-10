@@ -2,7 +2,7 @@
 title: Vaccine
 date: 2023-04-06T10:41:54+03:00
 lastmod: 2023-04-06T10:41:54+03:00
-author: Shang
+author: Shine
 avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: /img/cover.png

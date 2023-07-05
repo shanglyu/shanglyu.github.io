@@ -62,22 +62,22 @@ title = "Shine"
 
   favicon = "/favicon.png"
 
-    highlightjs = true
-    highlightjsCDN = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"
-    highlightjsExtraLanguages = ["ocaml"]
-    highlightjsTheme = "gruvbox-light"
-    highlightjsThemeDark = "gruvbox-dark"
+  highlightjs = true
+  highlightjsCDN = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"
+  highlightjsExtraLanguages = ["ocaml"]
+  highlightjsTheme = "gruvbox-light"
+  highlightjsThemeDark = "gruvbox-dark"
 
   # search
-    enableSearch = true
+  enableSearch = true
 
   # options
-   showSummaryCoverInPost = true
+  showSummaryCoverInPost = true
   # hasTwitterEmbed = true
   # reversePostAndAside = true
   # shareInAside = true
-   fixedNav = true
-   transparentNav = true
+  fixedNav = true
+  transparentNav = true
   # collapsibleTags = true
   # collapseBySummary = true
   # disableFlip = true

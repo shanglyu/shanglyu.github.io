@@ -38,7 +38,7 @@ title = "Shine"
 
   # footerBottomText = ""
 
-  # rss = true
+   rss = true
 
    utterancesRepo = "shanglyu/shanglyu.github.io"
 

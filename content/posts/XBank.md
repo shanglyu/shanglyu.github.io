@@ -1,5 +1,5 @@
 ---
-title: XBank
+title: Ngân hàng XBank
 date: 2023-08-16T17:59:33+03:00
 lastmod: 2023-08-16T17:59:33+03:00
 author: Shine
@@ -22,7 +22,6 @@ draft: false
 > 
 > Tools used: `nmap`  `burp-suite` `php` `chisel` `ssh` `scp`
 <!--more-->
-
 
 ## Goal
 

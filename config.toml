@@ -28,10 +28,10 @@ title = "Shine"
   images = ["me/background.jpg"]
 
   author = "Shine"
-  description = "CTFer-Pentester"
+  description = "CTFer-Pentester-RedTeam"
   avatar = "/me/avatar.jpg"
   headerTitle = "Shine"
-  motto = "CTFer-Pentester"
+  motto = "CTFer-Pentester-RedTeam"
   # maxTags = 5
   # categoriesLimitInHeader = 6 # deprecated
   # headerBottomText = "" # deprecated

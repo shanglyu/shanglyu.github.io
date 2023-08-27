@@ -71,6 +71,10 @@ title = "Shine"
   # search
   enableSearch = true
 
+  # in your config.toml
+  [outputs]
+  home = ["HTML", "RSS", "JSON"]
+
   # options
   showSummaryCoverInPost = true
   # hasTwitterEmbed = true

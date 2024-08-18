@@ -1,3 +1,3 @@
-# ShangLyu Hugo Website
+# ShangLyu Website
 
 This is a static website generated using [Hugo](https://gohugo.io/), a fast and flexible static site generator.

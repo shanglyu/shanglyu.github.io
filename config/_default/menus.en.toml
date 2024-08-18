@@ -1,0 +1,38 @@
+[[main]]
+name = "About"
+pageRef = "about"
+identifier = "UpIilfAPfk"
+weight = 5
+
+[[main]]
+name = "Portfolio"
+url = "https://shangs.gitbook.io/shine"
+identifier = "9EFwV2KcMw"
+weight = 3
+
+[[main]]
+name = "Posts"
+pageRef = "posts"
+identifier = "dLXFyUGluH"
+weight = 2
+
+[[main]]
+name = "Home"
+pageRef = "/"
+identifier = "NYce8r8vVt"
+weight = 1
+
+[[footer]]
+none = "none"
+
+[[footer]]
+name = "Categories"
+pageRef = "categories"
+identifier = "F3R0NDbn3W"
+weight = 100
+
+[[footer]]
+name = "Tags"
+pageRef = "tags"
+identifier = "yWWqc480Pp"
+weight = 90

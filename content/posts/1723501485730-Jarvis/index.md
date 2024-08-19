@@ -2,7 +2,7 @@
 title: "Jarvis"
 date: 2024-08-13
 draft: false
-description: "a description"
+description: ""
 categories:
   - HackTheBox
 tags:

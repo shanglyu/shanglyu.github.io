@@ -60,7 +60,8 @@ showZenMode = true
 heroStyle = "background"
 
 [list]
-showHero = false
+heroStyle = "background"
+showHero = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = false
 showBreadcrumbs = true
@@ -81,6 +82,7 @@ excludedKinds = [ "taxonomy", "term" ]
 [taxonomy]
 showTermCount = true
 showHero = true
+heroStyle = "background"
 showBreadcrumbs = false
 showViews = false
 showLikes = false
@@ -89,6 +91,7 @@ cardView = false
 
 [term]
 showHero = true
+heroStyle = "background"
 showBreadcrumbs = false
 showViews = false
 showLikes = false

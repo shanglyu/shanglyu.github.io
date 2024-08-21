@@ -14,6 +14,7 @@ dateFormat = "2 January 2006"
 [author]
 name = "Shang"
 image = "62023200.png"
-bio = "Pentester 👨‍💻| Bug Hunter 🐞| RedTeam 🥷"
-headline = "Pentester 👨‍💻| Bug Hunter 🐞| RedTeam 🥷"
 links = [ { github = "https://github.com/shanglyu" }, { linkedin = "https://www.linkedin.com/in/shanglyu" } ]
+headline = "Pentester 👨‍💻| Bug Hunter 🐞| RedTeam 🥷"
+bio = "A litte about you"
+

@@ -4,7 +4,7 @@ date: 2024-08-13
 draft: false
 description: ""
 categories: ["Pentest"]
-tags: ["burpsuite","PHP", "cft"]
+tags: ["burpsuite","PHP"]
 ---
 ---
 - Completed on 15/08/2023 | OS: Linux
